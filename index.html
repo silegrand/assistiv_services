@@ -104,16 +104,19 @@ body {
   position: fixed; top: 66px; left: 0; right: 0; z-index: 999;
   background: var(--p-pale); border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.4rem 1.5rem;
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--ink-soft);
+  gap: 0.5rem; padding: 0.45rem 1.5rem;
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--p-dark);
+  white-space: nowrap;
   flex-wrap: wrap;
 }
-.eco-strip a { color: var(--p-dark); text-decoration: none; font-weight: 500; transition: color var(--ease); }
-.eco-strip a:hover { color: var(--p); text-decoration: underline; }
-.eco-strip-sep { opacity: 0.35; }
-.eco-strip-here { color: var(--p); font-weight: 600; }
-@media (max-width: 600px) { .eco-strip { font-size: 0.56rem; top: 60px; gap: 0.3rem; } }
+.eco-strip-label { opacity: 0.7; }
+.eco-strip-role { color: var(--p-dark); font-weight: 700; }
+.eco-strip a { color: var(--p-mid); text-decoration: none; font-weight: 600; transition: color 0.15s; }
+.eco-strip a:hover { color: var(--p-dark); text-decoration: underline; }
+.eco-strip-sep { opacity: 0.35; margin: 0 0.25rem; }
+@media (max-width: 600px) { .eco-strip { font-size: 0.6rem; top: 60px; gap: 0.3rem; } }
 
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero {
@@ -381,6 +384,20 @@ body {
 .contact-h2 em { font-style: italic; color: var(--p-dark); }
 .contact-body { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; margin-bottom: 2rem; }
 .contact-email { display: inline-block; font-family: var(--mono); font-size: 0.95rem; font-weight: 500; color: var(--p); padding: 0.85rem 2rem; border: 1.5px solid var(--border); border-radius: 4px; background: var(--white); user-select: all; cursor: text; letter-spacing: 0.01em; }
+.contact-form { max-width: 620px; margin: 2.5rem auto 0; text-align: left; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+.cf-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.9rem; }
+.cf-row .cf-field { margin-bottom: 0; }
+.cf-field label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.cf-field input, .cf-field select, .cf-field textarea { font-family: var(--sans, inherit); font-size: 0.92rem; color: var(--ink); background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; padding: 0.7rem 0.85rem; outline: none; transition: border-color 0.2s; width: 100%; }
+.cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-color: var(--p); }
+.cf-field textarea { min-height: 120px; resize: vertical; }
+.cf-submit { font-family: inherit; font-size: 0.9rem; font-weight: 700; color: var(--white); background: var(--p); border: none; border-radius: 6px; padding: 0.85rem 2.2rem; cursor: pointer; transition: background 0.2s; }
+.cf-submit:hover { background: var(--p-dark); }
+.cf-success { display: none; margin-top: 1rem; font-size: 0.88rem; color: var(--p-dark); background: var(--p-pale); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
+.cf-alt { text-align: center; margin-top: 1.6rem; font-size: 0.82rem; color: var(--ink-soft); }
+.cf-alt a { color: var(--p); }
+@media (max-width: 560px) { .cf-row { grid-template-columns: 1fr; } }
 
 /* ── FOOTER ───────────────────────────────────────────────────── */
 footer { background: var(--white); border-top: 1px solid var(--border); padding: 4rem 0 2.25rem; }
@@ -439,13 +456,13 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
 
 <!-- ECOSYSTEM STRIP -->
 <div class="eco-strip">
-  <span>Assistiv Ecosystem</span>
+  <span class="eco-strip-label">Assistiv Ecosystem</span>
   <span class="eco-strip-sep">·</span>
-  <a href="https://www.assistiv.cloud">assistiv.cloud</a>
-  <span class="eco-strip-sep">→</span>
-  <a href="https://www.assistiv.tools">assistiv.tools</a>
-  <span class="eco-strip-sep">→</span>
-  <span class="eco-strip-here">assistiv.services</span>
+  <span class="eco-strip-role">Preventative Care</span>
+  <span class="eco-strip-sep">·</span>
+  <a href="https://www.assistiv.cloud" target="_blank" rel="noopener">assistiv.cloud</a>
+  <span class="eco-strip-sep">·</span>
+  <a href="https://www.assistiv.tools" target="_blank" rel="noopener">assistiv.tools</a>
 </div>
 
 <!-- MOBILE NAV -->
@@ -525,32 +542,32 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
 
     <div class="service-grid fade-up d1">
       <div class="service-card">
-        <div class="service-icon">🎙️</div>
+        <div class="service-icon" aria-hidden="true">🎙️</div>
         <div class="service-title">Conversational Check-ins</div>
         <div class="service-body">A warm, unhurried monthly conversation across six quality-of-life domains. Adaptive, non-clinical, designed to surface what matters without pressure or clinical framing. The person speaks freely, in their own words.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">🏠</div>
+        <div class="service-icon" aria-hidden="true">🏠</div>
         <div class="service-title">Passive Home Safety</div>
         <div class="service-body">Discreet mmWave radar and acoustic monitoring detects falls, changes in movement patterns, and nocturnal risk — without cameras, without wearables, without anything to remember or charge. Invisible in operation.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">👨‍👩‍👧</div>
+        <div class="service-icon" aria-hidden="true">👨‍👩‍👧</div>
         <div class="service-title">Inner Circle</div>
         <div class="service-body">A private family platform connecting the person to the people they trust. Photos, voice notes, shared moments, and — with consent — gentle visibility into how things really are at home. No surveillance. No alarm bells. Just connection.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📋</div>
+        <div class="service-icon" aria-hidden="true">📋</div>
         <div class="service-title">Care Coordination</div>
         <div class="service-body">A digital care wallet holding the person's preferences, history, and care information — accessible to whoever they choose. Structured referrals when needed. A single coherent picture in place of fragmented records.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">🔗</div>
+        <div class="service-icon" aria-hidden="true">🔗</div>
         <div class="service-title">Community Connections</div>
         <div class="service-body">Social prescribing links, local voluntary sector connections, and community resources matched to what the person has said they want — not what the system decides they need. Meaningful activity, not managed decline.</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📊</div>
+        <div class="service-icon" aria-hidden="true">📊</div>
         <div class="service-title">Household Intelligence</div>
         <div class="service-body">At-a-glance home environment monitoring — temperature, appliance safety, security status — surfaced to the person and, with their consent, to family. A quiet reassurance, not a control mechanism.</div>
       </div>
@@ -605,7 +622,7 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
 <!-- TRIPLE TAP -->
 <section class="section" id="tripletap" style="background:var(--white);border-top:1px solid var(--border);">
   <div class="section-inner">
-    <span class="eyebrow fade-up">Core design &middot; Patent pending</span>
+    <span class="eyebrow fade-up">Core design &middot; Proprietary intellectual property</span>
     <h2 class="section-h2 fade-up d1">Triple Tap Logic.<br><em>Three views of one life.</em></h2>
     <p class="section-body fade-up d2" style="max-width:64ch;">No single perspective tells the whole story of how someone is doing. Assistiv brings three together each month, across six quality-of-life domains, and pays closest attention to where they differ.</p>
 
@@ -697,21 +714,21 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
         <p class="section-body fade-up d2" style="margin-bottom:1.5rem;">Inner Circle is the private family layer of the Assistiv platform. A dedicated space for the people the person trusts — not a monitoring dashboard, not a notification feed, but a place where family can stay genuinely connected.</p>
         <div class="ic-features fade-up d2">
           <div class="ic-feature">
-            <div class="ic-feature-icon">📷</div>
+            <div class="ic-feature-icon" aria-hidden="true">📷</div>
             <div>
               <div class="ic-feature-title">Shared moments, not alerts</div>
               <div class="ic-feature-desc">Photos, voice notes, and messages in a private family space — the texture of daily life, shared on the person's terms.</div>
             </div>
           </div>
           <div class="ic-feature">
-            <div class="ic-feature-icon">👶</div>
+            <div class="ic-feature-icon" aria-hidden="true">👶</div>
             <div>
               <div class="ic-feature-title">Grandchildren included</div>
               <div class="ic-feature-desc">Child-friendly access means the youngest family members can be part of the circle — not just the worried adults.</div>
             </div>
           </div>
           <div class="ic-feature">
-            <div class="ic-feature-icon">📖</div>
+            <div class="ic-feature-icon" aria-hidden="true">📖</div>
             <div>
               <div class="ic-feature-title">Memories</div>
               <div class="ic-feature-desc">A structured digital life record, family-contributed, connected to reminiscence and memory support where needed.</div>
@@ -874,7 +891,45 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
     <span class="eyebrow fade-up" style="display:block;text-align:center;margin-bottom:1.25rem;">Get in touch</span>
     <h2 class="contact-h2 fade-up d1">Start the <em>right conversation.</em></h2>
     <p class="contact-body fade-up d2">We are in active conversation with NHS commissioners, ICBs, PCNs, housing providers, and technology partners. If you are working in early intervention, ageing-in-place, or community care — we would be glad to speak.</p>
-    <div class="contact-email fade-up d3">simon@assistiv.co</div>
+
+    <form class="contact-form fade-up d3" onsubmit="handleForm(event)">
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name">
+        </div>
+        <div class="cf-field">
+          <label for="cf-org">Organisation</label>
+          <input type="text" id="cf-org" name="org" autocomplete="organization">
+        </div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email">
+        </div>
+        <div class="cf-field">
+          <label for="cf-role">I am a…</label>
+          <select id="cf-role" name="role">
+            <option value="" selected>Please choose</option>
+            <option>NHS commissioner / ICB</option>
+            <option>PCN / GP practice</option>
+            <option>Local authority / social care</option>
+            <option>Housing provider</option>
+            <option>Family member or carer</option>
+            <option>Technology partner</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="cf-submit">Send message</button>
+      <div class="cf-success" id="form-success">Thank you — your email application should now have opened with your message ready to send. If it has not, email us directly at simon@assistiv.co.</div>
+    </form>
+    <p class="cf-alt fade-up d3">Prefer email? Write to us directly: <a href="mailto:simon@assistiv.co">simon@assistiv.co</a></p>
   </div>
 </section>
 
@@ -895,6 +950,7 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
           </div>
         </div>
         <p class="footer-tagline">Preventative care and support for independent living. Before crisis. On your terms.</p>
+        <p class="footer-tagline" style="margin-top:0.6rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint);">Powered by Anthropic technologies</p>
       </div>
       <div class="footer-nav">
         <div>
@@ -920,18 +976,26 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© <span id="yr"></span> Assistiv Systems Limited. Faversham, Kent.</p>
+      <p class="footer-copy">© 2026 Assistiv Systems Limited. Registered in England and Wales. Company number 17082597. Open Data: NHS Fingertips, NHSBSA EPD, ONS Census 2021, MHCLG IMD 2025. For research and commissioning intelligence purposes only.</p>
       <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Accessibility</a>
-        <a href="https://www.assistiv.co">assistiv.co</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="accessibility.html">Accessibility</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear();
+function handleForm(e) {
+  e.preventDefault();
+  // Mailto composer — same pattern as assistiv.cloud; no server, no stored data
+  const data = new FormData(e.target);
+  const subject = `Assistiv Services enquiry — ${data.get('role') || 'General'}`;
+  const body = `Name: ${data.get('name')}\nOrg: ${data.get('org')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`;
+  window.location.href = `mailto:simon@assistiv.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('form-success').style.display = 'block';
+}
 document.getElementById('hbg').addEventListener('click', () => document.getElementById('mob-nav').classList.add('open'));
 document.getElementById('mob-close').addEventListener('click', () => document.getElementById('mob-nav').classList.remove('open'));
 
