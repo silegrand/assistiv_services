@@ -61,6 +61,7 @@ body {
   width: 100%; max-width: 1160px; margin: 0 auto;
   padding: 0 2rem;
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  position: relative;
 }
 .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
 .nav-mark { position: relative; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
@@ -71,16 +72,12 @@ body {
 .nav-words { display: flex; flex-direction: column; gap: 1px; }
 .nav-name { font-family: var(--sans); font-size: 1rem; font-weight: 700; letter-spacing: -0.03em; color: var(--p); line-height: 1; }
 .nav-sub  { font-family: var(--mono); font-size: 0.44rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--p-dark); opacity: 0.7; }
-.nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+.nav-links {
+  display: flex; align-items: center; gap: 1.8rem; list-style: none;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
 .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; transition: color var(--ease); }
 .nav-links a:hover { color: var(--p); }
-.nav-eco {
-  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
-  color: var(--ink-soft); text-decoration: none; border: 1px solid var(--border);
-  padding: 0.35rem 0.75rem; border-radius: 4px; transition: all var(--ease);
-  white-space: nowrap;
-}
-.nav-eco:hover { border-color: var(--p-mid); color: var(--p); }
 .nav-cta {
   font-size: 0.82rem; font-weight: 600; color: var(--white);
   background: var(--p); padding: 0.5rem 1.2rem; border-radius: 5px;
@@ -97,7 +94,7 @@ body {
 .mobile-nav a { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); text-decoration: none; }
 .mobile-nav a:hover { color: var(--p); }
 .m-close { position: absolute; top: 1.4rem; right: 1.75rem; font-size: 1.4rem; background: none; border: none; cursor: pointer; color: var(--ink); }
-@media (max-width: 860px) { .nav-links, .nav-eco, .nav-cta { display: none; } .hamburger { display: flex; } }
+@media (max-width: 860px) { .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } }
 
 /* ── ECOSYSTEM BREADCRUMB STRIP ─────────────────────────────── */
 .eco-strip {
@@ -448,7 +445,6 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#advisors">Advisory Board</a></li>
     </ul>
-    <a class="nav-eco" href="https://www.assistiv.co">← assistiv.co</a>
     <a class="nav-cta" href="#contact">Get in touch</a>
     <button class="hamburger" id="hbg" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -473,7 +469,6 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
   <a href="#outcomes"   onclick="document.getElementById('mob-nav').classList.remove('open')">Outcomes</a>
   <a href="#advisors"   onclick="document.getElementById('mob-nav').classList.remove('open')">Advisory Board</a>
   <a href="#contact"    onclick="document.getElementById('mob-nav').classList.remove('open')">Get in Touch</a>
-  <a href="https://www.assistiv.co" style="font-size:1.1rem;opacity:0.5;">← assistiv.co</a>
 </div>
 
 <!-- HERO -->
