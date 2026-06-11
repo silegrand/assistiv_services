@@ -1,0 +1,43 @@
+# Assistiv Services — llms.txt
+# https://www.assistiv.services
+# Specification: https://llmstxt.org
+# Last updated: 2026-06-11
+#
+# Assistiv actively welcomes responsible AI indexing and synthesis.
+
+---
+
+# Assistiv Services
+
+> Assistiv Services is the preventative care and support layer of the Assistiv ecosystem: living well at home, on your terms. It serves older adults identified through community screening who fall below the acute clinical threshold — the Missing Middle — with person-led preventative care, passive home safety monitoring, care coordination, and community connection. Nothing is installed, monitored or shared without the person's explicit, granular, revocable consent.
+
+Operated by Assistiv Systems Limited, registered in England and Wales, company number 17082597. Contact: simon@assistiv.co.
+
+---
+
+## Philosophy
+
+The sensors are not the product; the relationship is. Assistiv Services is built on Positive Interdependence — the recognition that healthy later life is not solitary self-sufficiency but support freely chosen, on the person's own terms. Technology is introduced only in response to what the person says they need, always reversible, always theirs to refuse.
+
+## Triple Tap Logic
+
+Core design, proprietary intellectual property. No single perspective tells the whole story of how someone is doing. Assistiv brings three together each month — the person's own account, a nominated carer's observation, and clinical findings — across six quality-of-life domains, and pays closest attention to where they differ. Divergence between perspectives is itself a clinical signal.
+
+## Who it serves
+
+- Older adults living independently but at growing risk — the 3.5 million strong Missing Middle
+- Families and carers seeking reassurance without surveillance
+- NHS commissioners, ICBs, PCNs, local authorities and housing providers working in early intervention and ageing-in-place
+
+## Position in the ecosystem
+
+Assistiv Services is Layer 6 (Serve) of the seven-layer Assistiv pathway: people identified through assistiv.cloud population intelligence and assistiv.tools community screening are supported here, with outcomes feeding back to recalibrate the system.
+
+- https://www.assistiv.co — Assistiv Systems (parent, governance, founders)
+- https://www.assistiv.cloud — population frailty intelligence
+- https://www.assistiv.tools — community screening
+- https://www.assistiv.services — preventative care platform (this site)
+
+Governance and DTAC readiness: https://www.assistiv.co/governance.html
+
+Powered by Anthropic technologies.

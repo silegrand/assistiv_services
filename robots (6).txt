@@ -1,0 +1,7 @@
+# robots.txt — assistiv.services
+# Assistiv actively welcomes responsible indexing, including by AI crawlers.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.assistiv.services/sitemap.xml
